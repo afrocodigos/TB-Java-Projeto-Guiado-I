@@ -46,4 +46,15 @@ public class Produto {
     public String toString(){
         return "Produto: " + nome + " | Quantidade: " + quantidade + " | Preço: " + preco;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Produto) {
+            Produto produto = (Produto) obj;
+            return this.nome.equals(produto.getNome());
+        }
+        return false;
+    }
+
+
 }
