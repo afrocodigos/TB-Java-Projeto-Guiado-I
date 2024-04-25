@@ -74,4 +74,46 @@ public class Estoque {
         }
     }
 
+    public void atualizarProduto(Produto produto){
+        produtos.remove(produto);
+        Scanner s = new Scanner(System.in);
+        System.out.println("Produto selecionado: "+produto);
+        optionsUpdate();
+        int option = s.nextInt();
+        switch (option) {
+            case 1:
+                System.out.println("Digite o novo nome: ");
+                String nome = s.next();
+                produto.setNome(nome);
+                System.out.println("Nome atualizado com sucesso!");
+                adicionarProduto(produto);
+                break;
+            case 2:
+                System.out.println("Digite a nova quantidade: ");
+                int quantidade = s.nextInt();
+                produto.setQuantidade(quantidade);
+                System.out.println("Quantidade atualizada com sucesso!");
+                adicionarProduto(produto);
+                break;
+            case 3:
+                System.out.println("Digite o novo preço: ");
+                double preco = s.nextDouble();
+                produto.setPreco(preco);
+                System.out.println("Preço atualizado com sucesso!");
+                adicionarProduto(produto);
+                break;
+            default:
+                System.out.println("Opção inválida");
+                adicionarProduto(produto);
+                break;
+        }
+    }
+
+    public void optionsUpdate(){
+        System.out.println("1 - Atualizar nome");
+        System.out.println("2 - Atualizar quantidade");
+        System.out.println("3 - Atualizar preço");
+    }
+
+    // D - Delete (Deletar)
 }
