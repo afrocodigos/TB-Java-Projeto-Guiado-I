@@ -138,4 +138,8 @@ public class Estoque {
         }
     }
 
+    public void deletarProduto(Produto produto) {
+        produtos.remove(produto);
+        System.out.println("Produto deletado com sucesso!");
+    }
 }
