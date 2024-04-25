@@ -116,4 +116,26 @@ public class Estoque {
     }
 
     // D - Delete (Deletar)
+    public void deletarProduto() {
+        if(produtos.isEmpty()){
+            System.out.println("Nenhum produto em estoque");
+        } else {
+            Scanner s = new Scanner(System.in);
+            listarProdutos();
+            System.out.println("Digite o número do produto que deseja deletar: ");
+            if (s.hasNextInt()) {
+                int index = s.nextInt();
+                if(index > produtos.size() || index <= 0){
+                    System.out.println("Produto não encontrado");
+                } else {
+                    System.out.println("Produto selecionado: "+produtos.get(index-1));
+                    produtos.remove(index-1);
+                    System.out.println("Produto deletado com sucesso!");
+                }
+            } else {
+                System.out.println("Entrada inválida. Por favor, insira um número.");
+            }
+        }
+    }
+
 }
