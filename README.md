@@ -24,4 +24,4 @@ Ele é projetado para que um funcionário possa realizar operações de cadastro
 ## Diagrama de Classe:
 O diagrama é essencial para entendermos quantas instâncias de uma classe estão ligadas a outra e são essenciais para a modelagem correta do banco de dados ou da lógica de negócios do sistema.
 
-<img src="/DiagramaClassesLoja">
+<img src="/DiagramaClassesLoja.jpg">
