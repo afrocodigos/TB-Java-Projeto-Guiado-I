@@ -66,6 +66,12 @@ public class Loja {
                 case 8:
                     relatorioEstoqueMinimo();
                     break;
+                case 9:
+                    editarProduto();
+                    break;
+                case 10:
+                    deletarProduto();
+                    break;
                 case 0:
                     System.out.println("Saindo do programa...");
                     break;
@@ -235,5 +241,54 @@ public class Loja {
             }
         }
     }
+
+    private static void editarProduto() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("ID do produto a ser editado: ");
+        int id = scanner.nextInt();
+
+        for (Produto produto : produtos) {
+            if (produto.getId() == id) {
+                System.out.print("Novo nome do produto: ");
+                String nome = scanner.next();
+                System.out.print("Novo preço do produto: ");
+                double preco = scanner.nextDouble();
+                System.out.print("Nova quantidade em estoque: ");
+                int estoque = scanner.nextInt();
+                System.out.print("Novo estoque mínimo do produto: ");
+                int estoqueMinimo = scanner.nextInt();
+
+                produto.setNome(nome);
+                produto.setPreco(preco);
+                produto.setEstoque(estoque);
+                produto.setEstoqueMinimo(estoqueMinimo);
+
+                System.out.println("Produto editado com sucesso!");
+                return;
+            }
+        }
+
+        System.out.println("Produto não encontrado!");
+    }
+
+    private static void deletarProduto() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("ID do produto a ser deletado: ");
+        int id = scanner.nextInt();
+
+        for (Produto produto : produtos) {
+            if (produto.getId() == id) {
+                produtos.remove(produto);
+                System.out.println("Produto deletado com sucesso!");
+                return;
+            }
+        }
+
+        System.out.println("Produto não encontrado!");
+    }
+
+
 
 }
