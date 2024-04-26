@@ -1,12 +1,9 @@
 package model.entities;
 
 public class Produto {
-    //atributos
     private String nome;
     private int quantidade;
     private double preco;
-
-    //métodos
 
 
     public Produto(String nome, int quantidade, double preco) {
