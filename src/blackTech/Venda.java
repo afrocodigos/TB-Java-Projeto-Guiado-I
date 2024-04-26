@@ -5,12 +5,14 @@ public class Venda {
     private Cliente cliente;
     private Produto produto;
     private int quantidade;
+    private double precoTotal;
 
-    public Venda(int id, Cliente cliente, Produto produto, int quantidade) {
+    public Venda(int id, Cliente cliente, Produto produto, int quantidade, double precoTotal) {
         this.id = id;
         this.cliente = cliente;
         this.produto = produto;
         this.quantidade = quantidade;
+        this.precoTotal = precoTotal;
     }
 
     public int getId() {
@@ -43,5 +45,13 @@ public class Venda {
 
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
+    }
+
+    public double getPrecoTotal() {
+        return precoTotal;
+    }
+
+    public void setPrecoTotal(double precoTotal) {
+        this.precoTotal = precoTotal;
     }
 }

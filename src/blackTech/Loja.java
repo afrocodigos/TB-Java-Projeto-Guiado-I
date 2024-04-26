@@ -9,6 +9,9 @@ public class Loja {
     private static List<Venda> vendas = new ArrayList<>();
 
     public static void main(String[] args) {
+
+        inicializarDados();
+
         Scanner scanner = new Scanner(System.in);
         int opcao;
 
@@ -48,6 +51,21 @@ public class Loja {
                 case 3:
                     realizarVenda();
                     break;
+                case 4:
+                    listarProdutos();
+                    break;
+                case 5:
+                    listarVendas();
+                    break;
+                case 6:
+                    listarClientes();
+                    break;
+                case 7:
+                    relatorioFaturamento();
+                    break;
+                case 8:
+                    relatorioEstoqueMinimo();
+                    break;
                 case 0:
                     System.out.println("Saindo do programa...");
                     break;
@@ -57,10 +75,29 @@ public class Loja {
 
         } while (opcao != 10);
 
-
-
         scanner.close();
     }
+
+    private static void inicializarDados() {
+        // Inicializar alguns produtos
+        Produto produto1 = new Produto(1, "Camiseta", 29.99, 50, 10);
+        Produto produto2 = new Produto(2, "Calça Jeans", 59.99, 30, 5);
+        Produto produto3 = new Produto(3, "Tênis", 99.99, 20, 3);
+
+        produtos.add(produto1);
+        produtos.add(produto2);
+        produtos.add(produto3);
+
+        // Inicializar alguns clientes
+        Cliente cliente1 = new Cliente(1, "João", "123.456.789-00");
+        Cliente cliente2 = new Cliente(2, "Maria", "987.654.321-00");
+        Cliente cliente3 = new Cliente(3, "Pedro", "111.222.333-44");
+
+        clientes.add(cliente1);
+        clientes.add(cliente2);
+        clientes.add(cliente3);
+    }
+
 
     private static void cadastrarProduto() {
         Scanner scanner = new Scanner(System.in);
@@ -139,7 +176,9 @@ public class Loja {
             return;
         }
 
-        Venda venda = new Venda(vendas.size() + 1, cliente, produto, quantidade);
+        double precoTotal = produto.getPreco() * quantidade;
+
+        Venda venda = new Venda(vendas.size() + 1, cliente, produto, quantidade, precoTotal);
 
         // Adicionando a nova venda no ArrayList<>
         vendas.add(venda);
@@ -148,6 +187,53 @@ public class Loja {
         produto.setEstoque(produto.getEstoque() - quantidade);
 
         System.out.println("Venda realizada com sucesso!");
+    }
+
+    private static void listarProdutos() {
+        System.out.println("Lista de Produtos:");
+        for (Produto produto : produtos) {
+            System.out.println(produto.getId() + " - " + produto.getNome() + " - R$ " + produto.getPreco() + " - Estoque: " + produto.getEstoque());
+        }
+    }
+
+    private static void listarClientes() {
+        System.out.println("Lista de Clientes:");
+        for (Cliente cliente : clientes) {
+            System.out.println(cliente.getId() + " - " + cliente.getNome() + " - R$ " + cliente.getCpf());
+        }
+    }
+
+    private static void listarVendas() {
+        System.out.println("Lista de Vendas:");
+
+        for (Venda venda : vendas) {
+            //double valorTotalVenda = venda.getProduto(preco) * venda.getQuantidade();
+            System.out.println(venda.getId() + " - " + venda.getQuantidade() + " * " + venda.getProduto().getNome() + "(" + venda.getProduto().getPreco() + ") = " + venda.getPrecoTotal());
+        }
+    }
+
+    private static void relatorioFaturamento() {
+        int quantidadeVendas = vendas.size();
+        int quantidadeProdutos = 0;
+        double valorTotalVendas = 0.0;
+
+        for (Venda venda : vendas) {
+            quantidadeProdutos += venda.getQuantidade();
+            valorTotalVendas += venda.getQuantidade() * venda.getProduto().getPreco();
+        }
+
+        System.out.println("Quantidade de Vendas: " + quantidadeVendas);
+        System.out.println("Quantidade de Produtos Vendidos: " + quantidadeProdutos);
+        System.out.println("Valor Total das Vendas: " + valorTotalVendas);
+    }
+
+    private static void relatorioEstoqueMinimo() {
+        System.out.println("Produtos abaixo do estoque mínimo:");
+        for (Produto produto : produtos) {
+            if (produto.getEstoque() < produto.getEstoqueMinimo()) {
+                System.out.println(produto.getId() + " - " + produto.getNome() + " - Estoque: " + produto.getEstoque() + "/" + produto.getEstoqueMinimo());
+            }
+        }
     }
 
 }
