@@ -5,6 +5,7 @@ public class Produto {
 	private String nome;
 	private int quantidade;
 	private double preco;
+	private double desconto;
 	
 	public Produto(String nome, int quantidade, double preco) {
 		this.nome = nome;
@@ -13,10 +14,16 @@ public class Produto {
 		
 	}
 	
+	
 	public Produto(String nome, double preco) {
         this.nome = nome;
         this.preco = preco;
+        
     }
+	
+	public double getDesconto() {
+		return desconto;
+	}
 
     public String getNome(){
         return nome;
@@ -40,6 +47,20 @@ public class Produto {
 
     public void setPreco(double preco) {
         this.preco = preco;
+    }
+    
+    public void setDesconto(double desconto) {
+    	this.desconto = desconto;
+    }
+    
+    public void aplicarDesconto(double percentual) {
+    	
+    	this.preco += (this.preco * percentual / 100);
+    }
+    
+    public void removerDesconto() {
+    	this.preco += (this.preco * this.desconto / 100);
+    	this.desconto = 0;
     }
 }
 	 
