@@ -27,7 +27,14 @@ public class Estoque {
 		}
 		return total;
 	}
-		
+	
+	public Produto encontrarProdutoMaisCaro() {
+		return Collections.max(produtos, Comparator.comparing(Produto::getPreco));
+	}	
+	
+	 public Produto encontrarProdutoMaisBarato() {
+	        return Collections.min(produtos, Comparator.comparing(Produto::getPreco));
+	}
 
 	public void adicionarProduto(Produto produto) {
 		produtos.add(produto);
