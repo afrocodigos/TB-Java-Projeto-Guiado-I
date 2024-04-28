@@ -24,33 +24,41 @@ public class Estoque {
 
     //Read
     public void buscarProdutos(int id) {
-        for (Produto produto : listaProdutos) {
-            if (produto.getId() == id) {
-                System.out.printf(" Produto encontrado: ID: %d, Nome: %s, Preço: R$%.2f, Qtda: %d\n ",
-                        produto.getId(), produto.getNome(), produto.getPreco(), produto.getQuantidade());
-            } else {
-                System.out.println("\n Não existe produto no estoque com esse ID: " + id);
+        boolean produtoEncontrado = false;
+
+        for (Produto listaProduto : listaProdutos) {
+            if (listaProduto.getId() == id) {
+                produtoEncontrado = true;
+
+                System.out.printf("Produto encontrado: ID: %d, Nome: %s, Preço: R$%.2f, Qtda: %d\n",
+                        listaProduto.getId(), listaProduto.getNome(),
+                        listaProduto.getPreco(), listaProduto.getQuantidade());
+                break;
             }
-            break;
+        }
+
+        if (!produtoEncontrado) {
+            System.out.println("\nNão existe produto no estoque com esse ID: " + id);
         }
     }
 
     public void listarProdutos() {
         if (listaProdutos.isEmpty()) {
-            System.out.println(" Não existe produtos no estoque");
+            System.out.println(" Não existe produtos no estoque :(");
         }
-        System.out.println("------------------------------------");
-        System.out.println("|   Lita de Produtos no Estoque    |");
-        System.out.printf("| %-3s | %-10s | %-8.2s | %-6s\n" ,
+        System.out.println("-------------------------------------------------");
+        System.out.println("|          Lita de Produtos no Estoque          |");
+        System.out.println("-------------------------------------------------");
+        System.out.printf("| %-3s | %-20s | %-8.2s | %-6s|\n" ,
                 "ID", "Nome", "$", "Qta");
-        System.out.println("------------------------------------");
+        System.out.println("-------------------------------------------------");
 
         for (Produto produto : listaProdutos) {
-            System.out.printf("| %3d | %10s | %8.2f | %5d |\n",
+            System.out.printf("| %3d | %20s | %8.2f | %5d |\n",
                     produto.getId(), produto.getNome(), produto.getPreco(), produto.getQuantidade());
         }
 
-        System.out.println("------------------------------------");
+        System.out.println("-------------------------------------------------");
     }
 
     // Update
@@ -58,7 +66,7 @@ public class Estoque {
         for (int i = 0; i < listaProdutos.size(); i++) {
             if (listaProdutos.get(i).getId() == produtoAtualizado.getId()) {
                 listaProdutos.set(i, produtoAtualizado);
-                System.out.println(produtoAtualizado.getNome() + "atualizado com sucesso!");
+                System.out.println("Produto: " + produtoAtualizado.getNome() + " atualizado com sucesso!");
                 return;
             }
         }
@@ -70,9 +78,9 @@ public class Estoque {
         boolean produtoRemovido = listaProdutos.removeIf(produto -> produto.getId() == id);
 
         if (produtoRemovido) {
-            System.out.println(" Produto com ID " + id + "removido do estoque com sucesso!");
+            System.out.println(" Produto com ID " + id + " removido do estoque com sucesso!");
         } else {
-            System.out.println(" Produto com ID " + id + "não encontrado no estoque!");
+            System.out.println(" \n Produto com ID " + id + " não encontrado no estoque!");
         }
     }
     //endregion
