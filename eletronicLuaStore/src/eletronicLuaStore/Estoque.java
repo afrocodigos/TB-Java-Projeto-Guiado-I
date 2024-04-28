@@ -35,6 +35,18 @@ public class Estoque {
 	 public Produto encontrarProdutoMaisBarato() {
 	        return Collections.min(produtos, Comparator.comparing(Produto::getPreco));
 	}
+	 
+	 public void ordenarProdutosPorNome() {
+	        Collections.sort(produtos, Comparator.comparing(Produto::getNome));
+	    }
+
+	    public void ordenarProdutosPorPreco() {
+	        Collections.sort(produtos, Comparator.comparingDouble(Produto::getPreco));
+	    }
+
+	    public void ordenarProdutosPorQuantidade() {
+	        Collections.sort(produtos, Comparator.comparingInt(Produto::getQuantidade));
+	    }
 
 	public void adicionarProduto(Produto produto) {
 		produtos.add(produto);
