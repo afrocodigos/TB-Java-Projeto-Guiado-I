@@ -65,7 +65,7 @@ public class Estoque {
 		}
 	}
 	
-	public void atualizarPorduto(String nome, int quantidade, double preco) {
+	public void atualizarProduto(String nome, int quantidade, double preco) {
 		for (Produto produto : produtos) {
 			if(produto.getNome().equals(nome)) {
 				produto.setQuantidade(quantidade);
