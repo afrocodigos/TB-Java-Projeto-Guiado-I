@@ -1,5 +1,7 @@
 package eletronicLuaStore;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 
 public class Estoque {
@@ -17,6 +19,15 @@ public class Estoque {
 		}
 		return null; 
 	}
+	
+	public double calcularValorTotalEstoque() {
+		double total = 0;
+		for (Produto produto : produtos) {
+			total += produto.getPreco() * produto.getQuantidade();
+		}
+		return total;
+	}
+		
 
 	public void adicionarProduto(Produto produto) {
 		produtos.add(produto);
