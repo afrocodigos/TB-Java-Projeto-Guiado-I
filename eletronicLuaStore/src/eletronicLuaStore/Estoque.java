@@ -8,6 +8,15 @@ public class Estoque {
 	public Estoque() {
 		this.produtos = new ArrayList<Produto>();
 	}
+	
+	public Produto buscarProdutoPorNome(String nome) {
+		for (Produto produto : produtos) {
+			if (produto.getNome().equals(nome)) {
+				return produto;
+			}
+		}
+		return null; 
+	}
 
 	public void adicionarProduto(Produto produto) {
 		produtos.add(produto);
@@ -32,6 +41,12 @@ public class Estoque {
 				produto.setQuantidade(quantidade);
 				produto.setPreco(preco);
 				System.out.println("O produto " + produto.getNome() + "foi atualizado com sucesso");
+				
+				if(produto.getQuantidade() < 0) {
+					produto.setQuantidade(0);
+					System.out.println("A quantidade do produto foi ajustada para zero devido a uma atualização negativa.");
+				}
+				return;
 			}
 		}
 		System.out.println("Produto informado não existe em estoque");	
