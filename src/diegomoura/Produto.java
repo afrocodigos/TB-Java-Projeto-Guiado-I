@@ -4,11 +4,11 @@ public class Produto {
     private int id;
     private String nome;
     private String marca;
-    private String quantidade;
+    private int quantidade;
     private double preco;
 
     //region ...Constructor
-    public Produto( int id, String nome, String marca, double preco, String quantidade) {
+    public Produto( int id, String nome, String marca, double preco, int quantidade) {
         this.id = id;
         this.nome = nome;
         this.marca = marca;
@@ -16,7 +16,7 @@ public class Produto {
         this.quantidade = quantidade;
     }
 
-    public Produto( int id, String nome, String quantidade) {
+    public Produto( int id, String nome, int quantidade) {
         this.id = id;
         this.nome = nome;
         this.quantidade = quantidade;
@@ -41,11 +41,11 @@ public class Produto {
         this.preco = preco;
     }
 
-    public String getQuantidade() {
+    public int getQuantidade() {
         return quantidade;
     }
 
-    public void setQuantidade(String quantidade) {
+    public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
 
