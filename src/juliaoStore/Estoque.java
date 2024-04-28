@@ -18,14 +18,33 @@ public class Estoque {
 
     // R - Read (Ler)
     public void listarProdutos() {
+
+        double somaDoEstoque = 0;
+        double somaDoValorEstoque = 0;
+
         if (produtos.isEmpty()){
             System.out.println("Nenhum produto em estoque");
         } else {
             System.out.println("Produtos em estoque: ");
             for (Produto produto : produtos) {
+                somaDoEstoque +=  produto.getQuantidade();
+                somaDoValorEstoque += produto.getPreco() * produto.getQuantidade();
                 System.out.println("Nome: " + produto.getNome() + ", Quantidade: " + produto.getQuantidade() + ", Preço: " + produto.getPreco());
             }
+            System.out.println("==========================================");
+            System.out.println("Esse e a quantidade total de intens do seu estoque " + somaDoEstoque);
+            System.out.println("Esse e a quantidade total do valor do seu estoque " + somaDoValorEstoque);
+
         }
+    }
+
+    public Produto procurarProduto(String nome) {
+        for (Produto produto : produtos) {
+            if (produto.getNome().equalsIgnoreCase(nome)) {
+                return produto;
+            }
+        }
+        return null;
     }
 
     // U - Update (Atualização)
@@ -33,6 +52,24 @@ public class Estoque {
         for (Produto produto : produtos) {
             if (produto.getNome().equals(nome)) {
                 produto.setQuantidade(quantidade);
+                produto.setPreco(preco);
+                System.out.println("O produto " + produto.getNome() + "foi atualizado com sucesso");
+            }
+        }
+        System.out.println("Produto informado não existe em estoque");
+    }
+    public void atualizarProduto(String nome, int quantidade) {
+        for (Produto produto : produtos) {
+            if (produto.getNome().equals(nome)) {
+                produto.setQuantidade(quantidade);
+                System.out.println("O produto " + produto.getNome() + "foi atualizado com sucesso");
+            }
+        }
+        System.out.println("Produto informado não existe em estoque");
+    }
+    public void atualizarProduto(String nome,double preco) {
+        for (Produto produto : produtos) {
+            if (produto.getNome().equals(nome)) {
                 produto.setPreco(preco);
                 System.out.println("O produto " + produto.getNome() + "foi atualizado com sucesso");
             }
