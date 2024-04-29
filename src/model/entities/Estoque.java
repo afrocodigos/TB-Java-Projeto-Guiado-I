@@ -44,14 +44,13 @@ public class Estoque {
     public void atualizarProduto(String nome, int quantidade, double preco) {
         for (Produto produto : produtos) {
             if(produto.getNome().equals(nome)) {
-                produto.setQuantidade(quantidade);
-                produto.setPreco(preco);
-
+                produto.setQuantidade(quantidade += produto.getQuantidade());
                 if(produto.getQuantidade() <= 0) {
                     System.out.println("Devido o estoque ter sido zerado, item foi removido.");
                     removerProduto((nome));
                     return;
                 }
+                produto.setPreco(preco);
                 System.out.println("O produto ->" + produto.getNome() + " foi atualizado com sucesso");
                 return;
             }
@@ -68,6 +67,7 @@ public class Estoque {
                     return;
                 } else {
                     System.out.println("Não há quantidade suficiente de " + nome + " em estoque para retirar.");
+                    System.out.println("Quantidade de " + produto.getNome() + " disponivel : " + produto.getQuantidade());
                     return;
                 }
             }

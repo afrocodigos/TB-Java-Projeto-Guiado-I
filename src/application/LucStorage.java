@@ -14,33 +14,36 @@ public class  LucStorage {
         Locale.setDefault(Locale.US);
         Util funcao = new Util();
         Scanner userInput = new Scanner(System.in);
+        String nome;
+        int quant;
+        double preco;
+
 
         try {
             funcao.menu();
-
             int opcao = funcao.obterOpcaoDoUsuario(userInput);
             while (opcao != 0){
                 if (opcao > 0 && opcao <= 5){
                     if (opcao == 1){
-                        String nome = funcao.obterNomeDoProduto(userInput);
-                        int quant = funcao.obterQuantidade(userInput);
-                        double preco = funcao.obterPreco(userInput);
+                        nome = funcao.obterNomeDoProduto(userInput);
+                        quant = funcao.obterQuantidade(userInput);
+                        preco = funcao.obterPreco(userInput);
                         Produto item = new Produto(nome, quant, preco);
                         estoque.adicionarProduto(item);
                     } else if (opcao == 2) {
                         estoque.listarProdutos();
                     } else if (opcao == 3) {
-                        System.out.println(" - Insira os novos dados do produto para atualizar - ");
-                        String nome = funcao.obterNomeDoProduto(userInput);
+                        System.out.println(" - Insira o nome do item que deseja atualizar os dados - ");
+                        nome = funcao.obterNomeDoProduto(userInput);
                         estoque.verificaNome(nome);
-                        int novaQuant = funcao.obterQuantidade(userInput);
-                        double novoPreco = funcao.obterPreco(userInput);
-                        estoque.atualizarProduto(nome, novaQuant, novoPreco);
+                        quant = funcao.obterQuantidade(userInput);
+                        preco = funcao.obterPreco(userInput);
+                        estoque.atualizarProduto(nome, quant, preco);
                     } else if (opcao == 4) {
                         System.out.println(" - Insira os dados do produto para retirada - ");
-                        String nome = funcao.obterNomeDoProduto(userInput);
-                        int quantidade = funcao.obterQuantidade(userInput);
-                        estoque.retirarProduto(nome, quantidade);
+                        nome = funcao.obterNomeDoProduto(userInput);
+                        quant = funcao.obterQuantidade(userInput);
+                        estoque.retirarProduto(nome, quant);
                     } else {
                         System.out.println("- Qual produto deseja remover - ");
                         String nomeParaRemover = funcao.obterNomeDoProduto(userInput);
