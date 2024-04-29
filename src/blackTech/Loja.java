@@ -13,77 +13,83 @@ public class Loja {
         inicializarDados();
 
         Scanner scanner = new Scanner(System.in);
-        int opcao;
+        int opcao = 0;
 
         //  Menu interativo que permita ao usuário escolher e realizar todas as funcionalidades disponíveis
         do {
-            System.out.println("Menu:");
+            try {
+                System.out.println("Menu:");
 
-            // Métodos de Criação (Create)
-            System.out.println("1. Cadastrar Produto");
-            // Cadastro de Eletrônico, classe filha da classe produto
-            System.out.println("2. Cadastrar Eletrônico");
-            System.out.println("3. Cadastrar Cliente");
-            System.out.println("4. Realizar Venda");
+                // Métodos de Criação (Create)
+                System.out.println("1. Cadastrar Produto");
+                // Cadastro de Eletrônico, classe filha da classe produto
+                System.out.println("2. Cadastrar Eletrônico");
+                System.out.println("3. Cadastrar Cliente");
+                System.out.println("4. Realizar Venda");
 
-            // Métodos de Leitura (Read)
-            System.out.println("5. Listar Produtos");
-            System.out.println("6. Listar Vendas");
-            System.out.println("7. Listar Clientes");
-            System.out.println("8. Relatório de Faturamento");
-            System.out.println("9. Relatório de Estoque Mínimo");
+                // Métodos de Leitura (Read)
+                System.out.println("5. Listar Produtos");
+                System.out.println("6. Listar Vendas");
+                System.out.println("7. Listar Clientes");
+                System.out.println("8. Relatório de Faturamento");
+                System.out.println("9. Relatório de Estoque Mínimo");
 
-            // Métodos de Edição (Update)
-            System.out.println("10. Editar Produtos");
+                // Métodos de Edição (Update)
+                System.out.println("10. Editar Produtos");
 
-            // Métodos de Exclusão (Delete)
-            System.out.println("11. Remover Produtos");
+                // Métodos de Exclusão (Delete)
+                System.out.println("11. Remover Produtos");
 
-            System.out.println("0. Sair");
-            System.out.print("Escolha uma opção: ");
-            opcao = scanner.nextInt();
+                System.out.println("0. Sair");
+                System.out.print("Escolha uma opção: ");
+                opcao = scanner.nextInt();
 
-            switch (opcao) {
-                case 1:
-                    cadastrarProduto();
-                    break;
-                case 2:
-                    cadastrarEletronico();
-                    break;
-                case 3:
-                    cadastrarCliente();
-                    break;
-                case 4:
-                    realizarVenda();
-                    break;
-                case 5:
-                    listarProdutos();
-                    break;
-                case 6:
-                    listarVendas();
-                    break;
-                case 7:
-                    listarClientes();
-                    break;
-                case 8:
-                    relatorioFaturamento();
-                    break;
-                case 9:
-                    relatorioEstoqueMinimo();
-                    break;
-                case 10:
-                    editarProduto();
-                    break;
-                case 11:
-                    deletarProduto();
-                    break;
-                case 0:
-                    System.out.println("Saindo do programa...");
-                    break;
-                default:
-                    System.out.println("Opção inválida!");
+                switch (opcao) {
+                    case 1:
+                        cadastrarProduto();
+                        break;
+                    case 2:
+                        cadastrarEletronico();
+                        break;
+                    case 3:
+                        cadastrarCliente();
+                        break;
+                    case 4:
+                        realizarVenda();
+                        break;
+                    case 5:
+                        listarProdutos();
+                        break;
+                    case 6:
+                        listarVendas();
+                        break;
+                    case 7:
+                        listarClientes();
+                        break;
+                    case 8:
+                        relatorioFaturamento();
+                        break;
+                    case 9:
+                        relatorioEstoqueMinimo();
+                        break;
+                    case 10:
+                        editarProduto();
+                        break;
+                    case 11:
+                        deletarProduto();
+                        break;
+                    case 0:
+                        System.out.println("Saindo do programa...");
+                        break;
+                    default:
+                        System.out.println("Opção inválida!");
+                }
+
+            } catch(InputMismatchException e){
+            System.out.println("Erro! Por favor, insira um número válido.");
+            scanner.nextLine(); // limpa o buffer do scanner {
+
             }
-
         } while (opcao != 10);
 
         scanner.close();
