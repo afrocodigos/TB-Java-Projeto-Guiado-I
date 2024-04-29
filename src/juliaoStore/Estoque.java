@@ -1,25 +1,38 @@
 package juliaoStore;
 import java.util.ArrayList;
 
+/**
+ * Classe que representa o estoque de produtos da loja.
+ * Permite operações para adicionar, listar, atualizar e remover produtos.
+ */
 public class Estoque {
-    //atributos
+    // Lista para armazenar os produtos em estoque
     private ArrayList<Produto> produtos;
 
-    //método construtor
-    public Estoque(){
-        this.produtos = new ArrayList<Produto>();
+    /**
+     * Construtor para criar uma instância de Estoque.
+     * Inicializa a lista de produtos.
+     */
+    public Estoque() {
+        this.produtos = new ArrayList<>();
     }
 
-    //C - Create (Criar)
+    /**
+     * Adiciona um produto ao estoque.
+     * @param produto O produto a ser adicionado.
+     */
     public void adicionarProduto(Produto produto) {
         produtos.add(produto);
         System.out.println("Produto adicionado com sucesso!");
     }
 
-    // R - Read (Ler)
+    /**
+     * Lista todos os produtos no estoque.
+     * Exibe informações como nome, quantidade e preço de cada produto.
+     */
     public void listarProdutos() {
-        if (produtos.isEmpty()){
-            System.out.println("Nenhum produto em estoque");
+        if (produtos.isEmpty()) {
+            System.out.println("Nenhum produto em estoque.");
         } else {
             System.out.println("Produtos em estoque: ");
             for (Produto produto : produtos) {
@@ -28,29 +41,48 @@ public class Estoque {
         }
     }
 
-    // U - Update (Atualização)
+    /**
+     * Atualiza as informações de um produto existente no estoque.
+     * @param nome O nome do produto a ser atualizado.
+     * @param quantidade A nova quantidade do produto.
+     * @param preco O novo preço do produto.
+     */
     public void atualizarProduto(String nome, int quantidade, double preco) {
+        Produto produto = buscarProduto(nome);
+        if (produto != null) {
+            produto.setQuantidade(quantidade);
+            produto.setPreco(preco);
+            System.out.println("O produto " + nome + " foi atualizado com sucesso.");
+        } else {
+            System.out.println("Produto informado não existe em estoque.");
+        }
+    }
+
+    /**
+     * Remove um produto do estoque pelo nome.
+     * @param nome O nome do produto a ser removido.
+     */
+    public void removerProduto(String nome) {
+        Produto produto = buscarProduto(nome);
+        if (produto != null) {
+            produtos.remove(produto);
+            System.out.println("Produto removido com sucesso.");
+        } else {
+            System.out.println("Produto informado não existe em estoque.");
+        }
+    }
+
+    /**
+     * Busca um produto pelo nome.
+     * @param nome O nome do produto a ser buscado.
+     * @return O produto, se encontrado; caso contrário, retorna null.
+     */
+    private Produto buscarProduto(String nome) {
         for (Produto produto : produtos) {
             if (produto.getNome().equals(nome)) {
-                produto.setQuantidade(quantidade);
-                produto.setPreco(preco);
-                System.out.println("O produto " + produto.getNome() + "foi atualizado com sucesso");
+                return produto;
             }
         }
-        System.out.println("Produto informado não existe em estoque");
-    }
-
-    // D - Delete (Deletar)
-    public void removerProduto(String nome) {
-        for (int index = 0; index < produtos.size(); index++) {
-            Produto p = produtos.get(index);
-            if (p.getNome().equals(nome)) {
-                produtos.remove(index);
-                System.out.println("Produto removido com sucesso");
-                return;
-            }
-        }
-        System.out.println("Produto informado não existe em estoque");
+        return null;
     }
 }
-
