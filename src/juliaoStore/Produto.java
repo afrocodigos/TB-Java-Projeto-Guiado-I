@@ -1,24 +1,30 @@
 package juliaoStore;
 
+/**
+ * Classe que representa um Produto dentro da loja.
+ * Armazena informações como nome, quantidade em estoque e preço.
+ */
 public class Produto {
-    //atributos
+    // Atributos privados para armazenar informações do produto
     private String nome;
     private int quantidade;
     private double preco;
 
-    //métodos construtores
+    /**
+     * Construtor para inicializar um novo produto com nome, quantidade e preço.
+     * @param nome O nome do produto.
+     * @param quantidade A quantidade em estoque do produto.
+     * @param preco O preço do produto.
+     */
     public Produto(String nome, int quantidade, double preco) {
         this.nome = nome;
         this.quantidade = quantidade;
         this.preco = preco;
     }
 
-    public Produto(String nome, double preco) {
-        this.nome = nome;
-        this.preco = preco;
-    }
+    // Métodos getters e setters para acessar e atualizar os atributos do produto
 
-    public String getNome(){
+    public String getNome() {
         return nome;
     }
 
@@ -26,7 +32,7 @@ public class Produto {
         this.nome = nome;
     }
 
-    public int getQuantidade(){
+    public int getQuantidade() {
         return quantidade;
     }
 
@@ -34,7 +40,7 @@ public class Produto {
         this.quantidade = quantidade;
     }
 
-    public double getPreco(){
+    public double getPreco() {
         return preco;
     }
 
