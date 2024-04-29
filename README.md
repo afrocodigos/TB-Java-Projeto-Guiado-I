@@ -8,13 +8,13 @@ Nesse projeto será aplicado meu aprendizado com CRUD (CREATE - READ - UPDATE - 
 
 ## Funcionalidades do CRUD
 
-- **Create:** Em breve
+- **Create:** Adicionar produto ao storage !
 
-- **Read:** Em breve
+- **Read:** Listar os produtos adicionados
 
-- **Update:** Em breve
+- **Update:** Aqui podemos atualizar, preço e quantidade de um produto, e também fazer retiradas de produtos.
 
-- **Delete:** Em breve
+- **Delete:** Podemos remover o item escolhido
 
 ## Organização das pastas
 
@@ -25,6 +25,7 @@ Nesse projeto será aplicado meu aprendizado com CRUD (CREATE - READ - UPDATE - 
       -LucStorage.java
     - model/
       - entities/
+        - Util.java
         - Estoque.java
         - Produto.java
       - exceptions/
@@ -34,5 +35,5 @@ Nesse projeto será aplicado meu aprendizado com CRUD (CREATE - READ - UPDATE - 
 
 ## Autor e Orientador
 
-- [@Lucas Teles](https://www.github.com/Lucas-Teles)
+- [@Lucas Teles (Autor)](https://www.github.com/Lucas-Teles)
 - [@Júlio César (Orientador)](https://www.github.com/julio-cesar96)
