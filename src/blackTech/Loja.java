@@ -100,10 +100,12 @@ public class Loja {
         Produto produto1 = new Produto(1, "Camiseta", 29.99, 50, 10);
         Produto produto2 = new Produto(2, "Calça Jeans", 59.99, 30, 5);
         Produto produto3 = new Produto(3, "Tênis", 99.99, 20, 3);
+        Produto produto4 = new Eletronico(4, "Tablet", 200, 10, 4,"Tecnologia","Apple");
 
         produtos.add(produto1);
         produtos.add(produto2);
         produtos.add(produto3);
+        produtos.add(produto4);
 
         // Inicializar alguns clientes
         Cliente cliente1 = new Cliente(1, "João", "123.456.789-00");
