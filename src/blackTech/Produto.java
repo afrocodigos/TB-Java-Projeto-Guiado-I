@@ -1,11 +1,11 @@
 package blackTech;
 
 public class Produto {
-    private int id;
-    private String nome;
-    private double preco;
-    private int estoque;
-    private int estoqueMinimo;
+    protected int id;
+    protected String nome;
+    protected double preco;
+    protected int estoque;
+    protected int estoqueMinimo;
 
     public Produto(int id, String nome, double preco, int estoque, int estoqueMinimo) {
         this.id = id;
@@ -13,6 +13,11 @@ public class Produto {
         this.preco = preco;
         this.estoque = estoque;
         this.estoqueMinimo = estoqueMinimo;
+    }
+
+    @Override
+    public String toString() {
+        return this.nome + " - R$ " + this.preco + " - Estoque: " + this.estoque + " - Estoque mínimo: " + this.estoqueMinimo;
     }
 
     public int getId() {

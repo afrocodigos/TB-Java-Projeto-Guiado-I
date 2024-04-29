@@ -21,21 +21,23 @@ public class Loja {
 
             // Métodos de Criação (Create)
             System.out.println("1. Cadastrar Produto");
-            System.out.println("2. Cadastrar Cliente");
-            System.out.println("3. Realizar Venda");
+            // Cadastro de Eletrônico, classe filha da classe produto
+            System.out.println("2. Cadastrar Eletrônico");
+            System.out.println("3. Cadastrar Cliente");
+            System.out.println("4. Realizar Venda");
 
             // Métodos de Leitura (Read)
-            System.out.println("4. Listar Produtos");
-            System.out.println("5. Listar Vendas");
-            System.out.println("6. Listar Clientes");
-            System.out.println("7. Relatório de Faturamento");
-            System.out.println("8. Relatório de Estoque Mínimo");
+            System.out.println("5. Listar Produtos");
+            System.out.println("6. Listar Vendas");
+            System.out.println("7. Listar Clientes");
+            System.out.println("8. Relatório de Faturamento");
+            System.out.println("9. Relatório de Estoque Mínimo");
 
             // Métodos de Edição (Update)
-            System.out.println("9. Editar Produtos");
+            System.out.println("10. Editar Produtos");
 
             // Métodos de Exclusão (Delete)
-            System.out.println("10. Remover Produtos");
+            System.out.println("11. Remover Produtos");
 
             System.out.println("0. Sair");
             System.out.print("Escolha uma opção: ");
@@ -46,30 +48,33 @@ public class Loja {
                     cadastrarProduto();
                     break;
                 case 2:
-                    cadastrarCliente();
+                    cadastrarEletronico();
                     break;
                 case 3:
-                    realizarVenda();
+                    cadastrarCliente();
                     break;
                 case 4:
-                    listarProdutos();
+                    realizarVenda();
                     break;
                 case 5:
-                    listarVendas();
+                    listarProdutos();
                     break;
                 case 6:
-                    listarClientes();
+                    listarVendas();
                     break;
                 case 7:
-                    relatorioFaturamento();
+                    listarClientes();
                     break;
                 case 8:
-                    relatorioEstoqueMinimo();
+                    relatorioFaturamento();
                     break;
                 case 9:
-                    editarProduto();
+                    relatorioEstoqueMinimo();
                     break;
                 case 10:
+                    editarProduto();
+                    break;
+                case 11:
                     deletarProduto();
                     break;
                 case 0:
@@ -103,7 +108,6 @@ public class Loja {
         clientes.add(cliente2);
         clientes.add(cliente3);
     }
-
 
     private static void cadastrarProduto() {
         Scanner scanner = new Scanner(System.in);
@@ -198,7 +202,7 @@ public class Loja {
     private static void listarProdutos() {
         System.out.println("Lista de Produtos:");
         for (Produto produto : produtos) {
-            System.out.println(produto.getId() + " - " + produto.getNome() + " - R$ " + produto.getPreco() + " - Estoque: " + produto.getEstoque());
+            System.out.println(produto.getId() + " - " + produto.toString());
         }
     }
 
@@ -289,6 +293,28 @@ public class Loja {
         System.out.println("Produto não encontrado!");
     }
 
+    private static void cadastrarEletronico() {
+        Scanner scanner = new Scanner(System.in);
 
+        System.out.print("ID do produto: ");
+        int id = scanner.nextInt();
+        System.out.print("Nome do produto: ");
+        String nome = scanner.next();
+        System.out.print("Preço do produto: ");
+        double preco = scanner.nextDouble();
+        System.out.print("Quantidade em estoque: ");
+        int estoque = scanner.nextInt();
+        System.out.print("Estoque mínimo do produto: ");
+        int estoqueMinimo = scanner.nextInt();
+
+        System.out.print("Categoria: ");
+        String categoria = scanner.next();
+        System.out.print("Marca: ");
+        String marca = scanner.next();
+
+        Produto produto = new Eletronico(id, nome, preco, estoque, estoqueMinimo, categoria, marca);
+        produtos.add(produto);
+        System.out.println("Produto Eletrônico cadastrado com sucesso!");
+    }
 
 }
