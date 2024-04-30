@@ -1,6 +1,6 @@
-package model.entities;
+package models.util;
 
-import model.exceptions.Excecoes;
+import exceptions.Excecoes;
 
 import java.util.Scanner;
 

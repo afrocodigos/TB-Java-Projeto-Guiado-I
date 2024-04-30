@@ -1,9 +1,9 @@
 package application;
 
-import model.entities.Util;
-import model.entities.Produto;
-import model.entities.Estoque;
-import model.exceptions.Excecoes;
+import models.util.Util;
+import models.entities.Produto;
+import models.entities.Estoque;
+import exceptions.Excecoes;
 
 import java.util.Locale;
 import java.util.Scanner;
@@ -30,8 +30,10 @@ public class  LucStorage {
                         preco = funcao.obterPreco(userInput);
                         Produto item = new Produto(nome, quant, preco);
                         estoque.adicionarProduto(item);
+                        System.out.println(" ---------------------------------------------------------------- ");
                     } else if (opcao == 2) {
                         estoque.listarProdutos();
+                        System.out.println(" ---------------------------------------------------------------- ");
                     } else if (opcao == 3) {
                         System.out.println(" - Insira o nome do item que deseja atualizar os dados - ");
                         nome = funcao.obterNomeDoProduto(userInput);
@@ -39,21 +41,26 @@ public class  LucStorage {
                         quant = funcao.obterQuantidade(userInput);
                         preco = funcao.obterPreco(userInput);
                         estoque.atualizarProduto(nome, quant, preco);
+                        System.out.println(" ---------------------------------------------------------------- ");
                     } else if (opcao == 4) {
                         System.out.println(" - Insira os dados do produto para retirada - ");
                         nome = funcao.obterNomeDoProduto(userInput);
+                        estoque.verificaNome(nome);
                         quant = funcao.obterQuantidade(userInput);
                         estoque.retirarProduto(nome, quant);
+                        System.out.println(" ---------------------------------------------------------------- ");
                     } else {
                         System.out.println("- Qual produto deseja remover - ");
-                        String nomeParaRemover = funcao.obterNomeDoProduto(userInput);
-                        estoque.removerProduto(nomeParaRemover);
+                        nome = funcao.obterNomeDoProduto(userInput);
+                        estoque.verificaNome(nome);
+                        estoque.removerProduto(nome);
+                        System.out.println(" ---------------------------------------------------------------- ");
                     }
                 }else {
                     funcao.mensagemErro();
                 }
 
-                System.out.print("O que deseja: ");
+                funcao.menu();
                 opcao = funcao.obterOpcaoDoUsuario(userInput);
             }
 

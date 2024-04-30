@@ -23,7 +23,7 @@ Nesse projeto será aplicado meu aprendizado com CRUD (CREATE - READ - UPDATE - 
   - src/
     - application/
       -LucStorage.java
-    - model/
+    - models/
       - entities/
         - Util.java
         - Estoque.java
