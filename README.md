@@ -25,3 +25,10 @@ Ele é projetado para que um funcionário possa realizar operações de cadastro
 O diagrama é essencial para entendermos quantas instâncias de uma classe estão ligadas a outra e são essenciais para a modelagem correta do banco de dados ou da lógica de negócios do sistema.
 
 <img src="/DiagramaClassesLoja.jpg">
+
+## Conceitos trabalhados em Java:
+1. Utilização do Conceito de OO para elaboração de um cenário hipotético.
+1. Interação com usuário.>
+4. Herança com Produto - Eletronico
+5. Polimorfismo utilizando o método toString() da classe Eletronico
+6. Exceções
