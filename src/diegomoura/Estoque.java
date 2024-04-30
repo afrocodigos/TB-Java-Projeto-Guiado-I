@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Estoque {
 
-    private List<Produto> listaProdutos;
+    private final List<Produto> listaProdutos;
 
     //region ...Constructor
     public Estoque() {
@@ -17,8 +17,8 @@ public class Estoque {
 
     //Create
     public void adicionarProdutos(Produto produto) {
-        System.out.printf("Produto adicionado com sucesso: ID: %d, Nome: %s, Preço: R$%.2f, Qtda: %d\n",
-                produto.getId(), produto.getNome(), produto.getPreco(), produto.getQuantidade());
+        System.out.printf("Produto adicionado com sucesso: ID: %d, Nome: %s, Marca: %s, Preço: R$%.2f, Qtda: %d\n",
+                produto.getId(), produto.getNome(), produto.getMarca(), produto.getPreco(), produto.getQuantidade());
         listaProdutos.add(produto);
     }
 
@@ -30,8 +30,8 @@ public class Estoque {
             if (listaProduto.getId() == id) {
                 produtoEncontrado = true;
 
-                System.out.printf("Produto encontrado: ID: %d, Nome: %s, Preço: R$%.2f, Qtda: %d\n",
-                        listaProduto.getId(), listaProduto.getNome(),
+                System.out.printf("Produto encontrado: ID: %d, Nome: %s, Marca: %s, Preço: R$%.2f, Qtda: %d\n",
+                        listaProduto.getId(), listaProduto.getNome(), listaProduto.getMarca(),
                         listaProduto.getPreco(), listaProduto.getQuantidade());
                 break;
             }
@@ -46,19 +46,19 @@ public class Estoque {
         if (listaProdutos.isEmpty()) {
             System.out.println(" Não existe produtos no estoque :(");
         }
-        System.out.println("-------------------------------------------------");
-        System.out.println("|          Lita de Produtos no Estoque          |");
-        System.out.println("-------------------------------------------------");
-        System.out.printf("| %-3s | %-20s | %-8.2s | %-6s|\n" ,
-                "ID", "Nome", "$", "Qta");
-        System.out.println("-------------------------------------------------");
+        System.out.println("----------------------------------------------------------");;
+        System.out.println("|              Lista de Produtos no Estoque              |");
+        System.out.println("----------------------------------------------------------");
+        System.out.printf("| %-3s | %-20s |  %-5s | %-8.2s | %-6s|\n" ,
+                "ID", "Nome", "Marca", "$", "Qta");
+        System.out.println("----------------------------------------------------------");
 
         for (Produto produto : listaProdutos) {
-            System.out.printf("| %3d | %20s | %8.2f | %5d |\n",
-                    produto.getId(), produto.getNome(), produto.getPreco(), produto.getQuantidade());
+            System.out.printf("| %3d | %20s | %5s | %8.2f | %5d |\n",
+                    produto.getId(), produto.getNome(), produto.getMarca(), produto.getPreco(), produto.getQuantidade());
         }
 
-        System.out.println("-------------------------------------------------");
+        System.out.println("----------------------------------------------------------");
     }
 
     // Update
