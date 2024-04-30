@@ -38,6 +38,6 @@ O sistema possui as seguintes funcionalidades:
 
 Contribuições são bem-vindas! Sinta-se à vontade para enviar sugestões, correções de bugs ou melhorias através de pull requests.
 
-## Autores
+## Autora
 
 - **Juliana Chaves Palm**
