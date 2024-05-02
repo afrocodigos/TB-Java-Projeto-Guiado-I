@@ -9,5 +9,4 @@ public interface InterfaceFuncionario {
     void setSalarioFuncionario(double salarioFuncionario);
     String getCpfFuncionario();
     void setCpfFuncionario(String cpfFuncionario);
-    
 }
