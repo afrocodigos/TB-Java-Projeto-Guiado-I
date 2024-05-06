@@ -6,16 +6,16 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        String chave = "af123";
         boolean condicao = false;
         Menu opcoesMenu = new Menu();
+        Senha chave = new Senha();
         Scanner read = new Scanner(System.in);
         Scanner scanner = new Scanner(System.in);
 
         while (!condicao) {
             System.out.println("Digite a senha do sistema:");
             String senha = read.nextLine();
-            if (senha.equals(chave)) {
+            if (senha.equals(chave.getSenha())) {
                 condicao = true;
             } else {
                 System.out.println("Senha incorreta");
