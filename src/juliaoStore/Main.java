@@ -9,7 +9,6 @@ public class Main {
         boolean condicao = false;
         Menu opcoesMenu = new Menu();
         Scanner read = new Scanner(System.in);
-        Scanner scanner = new Scanner(System.in);
 
         while (!condicao) {
             System.out.println("Digite a senha do sistema:");

@@ -25,7 +25,7 @@ public class Estoque {
             }
         }
 
-        // Se o produto não estiver cadastrado, adiciona-o
+        // Se o produto não estiver cadastrado, adiciona o novo produto
         if (!produtoJaCadastrado) {
             produtos.add(produto);
             System.out.println("Produto adicionado com sucesso: " + produto.toString());
@@ -57,6 +57,7 @@ public class Estoque {
                 produto.setAutor(autor);
                 produto.setAno(ano);
                 System.out.println("O produto " + produto.toString() + " foi atualizado com sucesso");
+                return;
             } else {
                 System.out.println("Produto informado não existe em estoque");
 
