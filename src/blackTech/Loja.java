@@ -6,9 +6,9 @@ import java.util.Scanner;
 import static blackTech.Menu.ExibirMenu;
 
 public class Loja {
-    private static List<Produto> produtos = new ArrayList<>();
-    private static List<Cliente> clientes = new ArrayList<>();
-    private static List<Venda> vendas = new ArrayList<>();
+    protected static List<Produto> produtos = new ArrayList<>();
+    protected static List<Cliente> clientes = new ArrayList<>();
+    protected static List<Venda> vendas = new ArrayList<>();
 
     public static void main(String[] args) {
 
@@ -65,8 +65,8 @@ public class Loja {
                 }
 
             } catch(InputMismatchException e){
-            System.out.println("Erro! Por favor, insira um número válido.");
-            scanner.nextLine(); // limpa o buffer do scanner {
+                System.out.println("Erro! Por favor, insira um número válido.");
+                scanner.nextLine(); // limpa o buffer do scanner {
 
             }
         } while (opcao != 10);
