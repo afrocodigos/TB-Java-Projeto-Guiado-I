@@ -20,7 +20,25 @@ public class ArvoreFuncionario {
         return nodeFuncionario;
     }
 
-    private void inserirNodeFuncionario(FuncionarioBase funcionario){
+    public void inserirNodeFuncionario(FuncionarioBase funcionario){
         root = inserirRecursivo(root, funcionario);
     }
+
+    private FuncionarioBase buscarRecursivo(NodeFuncionario nodeFuncionario, String nomeFuncionario){
+        if (nodeFuncionario == null || nodeFuncionario.funcionario.getNomeFuncionario().equals(nomeFuncionario)){
+            return nodeFuncionario == null ? null : nodeFuncionario.funcionario;
+        }
+        if (nomeFuncionario.compareTo(nodeFuncionario.funcionario.getNomeFuncionario()) < 0){
+            return buscarRecursivo(nodeFuncionario.leftChild, nomeFuncionario);
+        }
+        else if (nomeFuncionario.compareTo(nodeFuncionario.funcionario.getNomeFuncionario()) > 0){
+            return buscarRecursivo(nodeFuncionario.rightChild, nomeFuncionario);
+        }
+        return null;
+    }
+
+    public FuncionarioBase buscarFuncionario(String nomeFuncionario){
+        return buscarRecursivo(root, nomeFuncionario);
+    }
+
 }
