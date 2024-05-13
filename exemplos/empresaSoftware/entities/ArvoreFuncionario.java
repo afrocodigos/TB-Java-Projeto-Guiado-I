@@ -17,6 +17,7 @@ public class ArvoreFuncionario {
         else if (funcionario.getNomeFuncionario().compareTo(nodeFuncionario.getNomeFuncionario()) > 0){
             nodeFuncionario.rightChild = inserirRecursivo(nodeFuncionario.rightChild, funcionario);
         }
+
         return nodeFuncionario;
     }
 
@@ -34,6 +35,7 @@ public class ArvoreFuncionario {
         else if (nomeFuncionario.compareTo(nodeFuncionario.funcionario.getNomeFuncionario()) > 0){
             return buscarRecursivo(nodeFuncionario.rightChild, nomeFuncionario);
         }
+
         return null;
     }
 
@@ -59,7 +61,7 @@ public class ArvoreFuncionario {
                 return nodeFuncionario.leftChild;
             }
 
-            nodeFuncionario.funcionario = minValue(nodeFuncionario.rightChild);
+            nodeFuncionario.funcionario = achaMenorFuncionario(nodeFuncionario.rightChild);
             nodeFuncionario.rightChild = removerRecursivo(nodeFuncionario.rightChild, nodeFuncionario.funcionario.getNomeFuncionario())
         }
 
@@ -68,5 +70,17 @@ public class ArvoreFuncionario {
 
     public void removerFuncionario(String nomeFuncionario){
         root = removerRecursivo(root, nomeFuncionario);
+    }
+
+    private FuncionarioBase achaMenorFuncionario(NodeFuncionario nodeFuncionario){
+        FuncionarioBase menorFuncionario = nodeFuncionario.funcionario;
+
+        while (nodeFuncionario.leftChild != null) {
+            menorFuncionario = nodeFuncionario.leftChild.funcionario;
+            nodeFuncionario = nodeFuncionario.leftChild;
+            
+        }
+
+        return menorFuncionario;
     }
 }
