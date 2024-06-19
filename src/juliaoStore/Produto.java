@@ -1,24 +1,24 @@
 package juliaoStore;
 
 public class Produto {
-    //atributos
     private String nome;
     private int quantidade;
     private double preco;
 
-    //métodos construtores
+    // Construtor completo
     public Produto(String nome, int quantidade, double preco) {
         this.nome = nome;
         this.quantidade = quantidade;
         this.preco = preco;
     }
 
+    // Construtor para quando a quantidade não é informada (padrão 0)
     public Produto(String nome, double preco) {
-        this.nome = nome;
-        this.preco = preco;
+        this(nome, 0, preco);
     }
 
-    public String getNome(){
+    // Getters e setters
+    public String getNome() {
         return nome;
     }
 
@@ -26,7 +26,7 @@ public class Produto {
         this.nome = nome;
     }
 
-    public int getQuantidade(){
+    public int getQuantidade() {
         return quantidade;
     }
 
@@ -34,7 +34,7 @@ public class Produto {
         this.quantidade = quantidade;
     }
 
-    public double getPreco(){
+    public double getPreco() {
         return preco;
     }
 

@@ -27,11 +27,11 @@ O sistema possui as seguintes funcionalidades:
 2. Navegue até o diretório do projeto `TB-Java-Projeto-Guiado-I/src/juliaoStore/`.
 3. Compile os arquivos `.java` usando o comando `javac`:
     ```
-    javac Estoque.java Loja.java Produto.java
+    javac Estoque.java Loja.java Produto.java CarrinhoDeCompras.java
     ```
 4. Execute o programa usando o comando `java` e o nome da classe principal `Loja`:
     ```
-    java Loja
+    java juliaoStore.Loja
     ```
 
 ## Contribuições
